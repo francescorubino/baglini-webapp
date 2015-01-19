@@ -1,0 +1,73 @@
+/* Bullet Navigator Skin Begin */
+/*
+            .jssorb02 div           (normal)
+            .jssorb02 div:hover     (normal mouseover)
+            .jssorb02 .av           (active)
+            .jssorb02 .av:hover     (active mouseover)
+            .jssorb02 .dn           (mousedown)
+            */
+.jssorb02 div, .jssorb02 div:hover, .jssorb02 .av {
+	background: url(../img/jssor/b02.png) no-repeat;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.jssorb02 div {
+	background-position: -5px -5px;
+}
+
+.jssorb02 div:hover, .jssorb02 .av:hover {
+	background-position: -35px -5px;
+}
+
+.jssorb02 .av {
+	background-position: -65px -5px;
+}
+
+.jssorb02 .dn, .jssorb02 .dn:hover {
+	background-position: -95px -5px;
+}
+/* Bullet Navigator Skin Begin */
+
+/* Arrow Navigator Skin Begin */
+/* jssor slider arrow navigator skin 03 css */
+/*
+            .jssora03l              (normal)
+            .jssora03r              (normal)
+            .jssora03l:hover        (normal mouseover)
+            .jssora03r:hover        (normal mouseover)
+            .jssora03ldn            (mousedown)
+            .jssora03rdn            (mousedown)
+            */
+.jssora03l, .jssora03r, .jssora03ldn, .jssora03rdn {
+	position: absolute;
+	cursor: pointer;
+	display: block;
+	background: url(../img/jssor/a11.png) no-repeat;
+	overflow: hidden;
+}
+
+.jssora03l {
+	background-position: -3px -33px;
+}
+
+.jssora03r {
+	background-position: -63px -33px;
+}
+
+.jssora03l:hover {
+	background-position: -123px -33px;
+}
+
+.jssora03r:hover {
+	background-position: -183px -33px;
+}
+
+.jssora03ldn {
+	background-position: -243px -33px;
+}
+
+.jssora03rdn {
+	background-position: -303px -33px;
+}
+/* Arrow Navigator Skin End */
