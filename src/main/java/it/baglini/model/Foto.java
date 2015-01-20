@@ -30,7 +30,7 @@ public class Foto {
 	private String descrizione;
 
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "GRUPPO_ID")
 	private GruppoFoto gruppoFoto;
 	
@@ -42,7 +42,7 @@ public class Foto {
 		super();
 		this.id = id;
 	}
-
+	
 	public long getId() {
 		return id;
 	}

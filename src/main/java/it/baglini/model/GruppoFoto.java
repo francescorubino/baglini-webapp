@@ -30,17 +30,8 @@ public class GruppoFoto {
 	private String descrizione;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "gruppoFoto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "gruppoFoto", cascade = CascadeType.ALL)
 	private List<Foto> fotos = new ArrayList<Foto>();
-
-	public GruppoFoto() {
-		super();
-	}
-
-	public GruppoFoto(long id) {
-		super();
-		this.id = id;
-	}
 
 	public long getId() {
 		return id;
@@ -54,8 +45,8 @@ public class GruppoFoto {
 		return nome;
 	}
 
-	public void setNome(String testo) {
-		this.nome = testo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getDescrizione() {
@@ -73,5 +64,16 @@ public class GruppoFoto {
 	public void setFotos(List<Foto> fotos) {
 		this.fotos = fotos;
 	}
+
+	public GruppoFoto() {
+		super();
+	}
+
+	public GruppoFoto(long id) {
+		super();
+		this.id = id;
+	}
+
+
 
 }

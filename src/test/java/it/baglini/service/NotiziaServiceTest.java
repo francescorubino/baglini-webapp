@@ -26,9 +26,21 @@ public class NotiziaServiceTest {
 	@Test
 	public void creaNotizia() {
 		Notizia n = new Notizia();
-		n.setTitolo("Seconda Notizia");
-		n.setTesto("La nostra bruttissima seconda notizia");
+		n.setTitolo("Prima Notizia");
+		n.setTesto("Una bella notizia");
 		Calendar cal = Calendar.getInstance();
+		n.setData(cal);
+		Notizia newN = notiziaService.salvaNotizia(n);
+		System.err.println(newN.getId());
+	}
+
+	@Test
+	public void creaNotiziaPersonalizzata() {
+		Notizia n = new Notizia();
+		n.setTitolo("Notizia antica");
+		n.setTesto("Notizia di prova con anno = 2000");
+		Calendar cal = Calendar.getInstance();
+		cal.set(2000, 0, 1);
 		n.setData(cal);
 		Notizia newN = notiziaService.salvaNotizia(n);
 		System.err.println(newN.getId());
@@ -37,21 +49,21 @@ public class NotiziaServiceTest {
 	@Test
 	public void findByTitolo() {
 		List<Notizia> result = this.notiziaService.findByTitolo(
-				"Seconda Notizia");
+				"Prima Notizia");
 		Assert.assertEquals(1, result.size());
 	}
 
 	@Test
 	public void findByLikeTitolo() {
 		List<Notizia> result = this.notiziaService
-				.getNotizieByLikeTitolo("Sec%");
+				.getNotizieByLikeTitolo("Pr%");
 		Assert.assertEquals(1, result.size());
 	}
 
 	@Test
 	public void findNotizieByAnno() {
 		List<Notizia> result = this.notiziaService
-				.getNotizieByAnno(2015);
+				.getNotizieByAnno(2000);
 		Assert.assertEquals(1, result.size());
 	}
 }

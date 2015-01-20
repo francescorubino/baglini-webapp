@@ -11,4 +11,5 @@ public interface NotiziaService {
 	public List<Notizia> findByTitolo(String titolo);
 	public List<Notizia> getNotizieByLikeTitolo(String titolo);
 	public List<Notizia> getNotizieByAnno(int anno);
+	public List<Notizia> getNotizieByAnnoAndMese(int anno, int mese);
 }
