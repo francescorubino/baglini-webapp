@@ -20,65 +20,83 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = BagliniWebappApplication.class)
-@TransactionConfiguration(transactionManager = "transactionManager",defaultRollback = true)
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 @Transactional
 @WebAppConfiguration
 public class FotoServiceTest {
 
 	@Inject
 	private GruppoFotoService gruppoFotoService;
-	
+
 	@Inject
 	private FotoService fotoService;
-	
-	@Rollback(value=true)
+
+	@Rollback(value = true)
 	@Test
-	public void creaAlbum() {
+	public void creaAzienda() {
 		GruppoFoto gf = new GruppoFoto();
-		gf.setNome("Varie");
-		gf.setDescrizione("Immagini di prova");
-		
+		gf.setNome("Azienda");
+		gf.setDescrizione("Pagina di descrizione dell'azienda");
+
 		Foto f1 = new Foto();
-		f1.setNome("ciao");
-		f1.setDescrizione("Si");
-		f1.setPath("/img/ciao.jpg");
+		f1.setNome("azienda1");
+		f1.setDescrizione("Azienda vista da fuori");
+		f1.setPath("img/baglini/azienda1.jpg");
 		f1.setGruppoFoto(gf);
 		gf.getFotos().add(f1);
-		
+
 		Foto f2 = new Foto();
-		f2.setNome("hey");
-		f2.setDescrizione("No");
-		f2.setPath("/img/hey.jpg");
+		f2.setNome("azienda2");
+		f2.setDescrizione("Azienda vista da dentro");
+		f2.setPath("img/baglini/azienda2.jpg");
 		f2.setGruppoFoto(gf);
 		gf.getFotos().add(f2);
-		
-		GruppoFoto newGf = gruppoFotoService.salvaGruppoFoto(gf);
+
+		GruppoFoto newGf = gruppoFotoService.createGruppoFoto(gf);
+		System.err.println(newGf.getId());
+	}
+
+	@Rollback(value = true)
+	@Test
+	public void creaServizi() {
+		GruppoFoto gf = new GruppoFoto();
+		gf.setNome("Servizi");
+		gf.setDescrizione("Pagina di descrizione dei servizi");
+
+		Foto f1 = new Foto();
+		f1.setNome("servizio1");
+		f1.setDescrizione("Servizio wow");
+		f1.setPath("img/baglini/servizi1.jpg");
+		f1.setGruppoFoto(gf);
+		gf.getFotos().add(f1);
+
+		Foto f2 = new Foto();
+		f2.setNome("servizio2");
+		f2.setDescrizione("Servizio antani");
+		f2.setPath("img/baglini/servizi2.jpg");
+		f2.setGruppoFoto(gf);
+		gf.getFotos().add(f2);
+
+		GruppoFoto newGf = gruppoFotoService.createGruppoFoto(gf);
 		System.err.println(newGf.getId());
 	}
 
 	@Test
 	public void findGruppoByNome() {
-		GruppoFoto result = this.gruppoFotoService.findByNome(
-				"Varie");
+		List<GruppoFoto> result = this.gruppoFotoService.findByNome("Varie");
 		Assert.assertNotNull(result);
 	}
-	
+
 	@Test
 	public void findFotoByNome() {
-		List<Foto> result = this.fotoService.findByNome(
-				"azienda1");
+		List<Foto> result = this.fotoService.findByNome("azienda1");
 		Assert.assertEquals(1, result.size());
 	}
 
-	@Test
-	public void findByPath() {
-		Foto result = this.fotoService.findByPath("/img/azienda2.jpg");
-		Assert.assertNotNull(result);
-	}
 
 	@Test
 	public void getFotosByGruppoFoto() {
-		List<Foto> result = this.fotoService.getFotosByGruppoId(1);
+		List<Foto> result = this.fotoService.findByIdGruppo(1);
 		Assert.assertEquals(2, result.size());
 	}
 }

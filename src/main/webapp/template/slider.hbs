@@ -4,12 +4,18 @@
 	<!-- Slides Container -->
 	<div u="slides"
 		style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
-		<div>
-			<img u="image" src="img/azienda1.jpg" />
-		</div>
-		<div>
-			<img u="image" src="img/azienda2.jpg" />
-		</div>
+
+		{{#each collection}}
+			<div>
+				<img u="image" src="{{path}}" title="{{nome}}" />
+			</div> 
+		{{/each}}
+<!-- 		<div> -->
+<!-- 			<img u="image" src="img/azienda1.jpg" /> -->
+<!-- 		</div> -->
+<!-- 		<div> -->
+<!-- 			<img u="image" src="img/azienda2.jpg" /> -->
+<!-- 		</div> -->
 	</div>
 
 

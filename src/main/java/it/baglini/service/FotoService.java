@@ -6,9 +6,10 @@ import java.util.List;
 
 public interface FotoService {
 
-	public Foto salvaFoto(Foto foto);
+	public Foto getFoto(Long idFoto);
+	public Foto updateFoto(Foto foto);
+	public Foto createFoto(Foto foto);
 	public List<Foto> getFotos();
 	public List<Foto> findByNome(String nome);
-	public Foto findByPath(String path);
-	public List<Foto> getFotosByGruppoId(long id);
+	public List<Foto> findByIdGruppo(long id);
 }

@@ -1,13 +1,23 @@
-define([ 'backbone', 'resthub', 'jssor-slider', 'hbs!template/slider' ],
-		function(Backbone, Resthub, JssorSlider, sliderTemplate) {
+define([ 'backbone', 'resthub', 'jssor-slider', 'collection/foto-collection', 'hbs!template/slider' ],
+		function(Backbone, Resthub, JssorSlider, FotoCollection, sliderTemplate) {
 
 			var SliderView = Resthub.View.extend({
 
 				// Define view template
 				template : sliderTemplate,
 
-				initialize : function() {
-
+				initialize : function(args) {
+					 // Initialize the collection
+		            this.collection = new FotoCollection({
+		            	idGruppo : args.idGruppo
+		            });
+		            
+		            // Render the view when the collection is retreived from the server
+		            this.listenTo(this.collection, 'sync', this.render);
+		            
+		            // Request unpaginated URL
+		            this.collection.fetch({ data: { page: 'no'} });
+		            
 					// Render the view
 					this.render();
 				},
