@@ -12,11 +12,16 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = BagliniWebappApplication.class)
+@TransactionConfiguration(transactionManager = "transactionManager",defaultRollback = true)
+@Transactional
 @WebAppConfiguration
 public class FotoServiceTest {
 
@@ -26,6 +31,7 @@ public class FotoServiceTest {
 	@Inject
 	private FotoService fotoService;
 	
+	@Rollback(value=true)
 	@Test
 	public void creaAlbum() {
 		GruppoFoto gf = new GruppoFoto();
