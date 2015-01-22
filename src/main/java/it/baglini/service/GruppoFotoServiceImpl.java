@@ -16,26 +16,34 @@ import com.google.common.collect.Lists;
 public class GruppoFotoServiceImpl implements GruppoFotoService {
 
 	@Inject
-	private GruppoFotoRepository GruppoFotoRepository;
+	private GruppoFotoRepository gruppoFotoRepository;
 
 
 	@Override
 	public List<GruppoFoto> getGruppiFoto() {
-		return Lists.newArrayList(GruppoFotoRepository.findAll());
-	}
-	
-	@Override
-	public GruppoFoto salvaGruppoFoto(GruppoFoto gruppoFoto) {
-		return this.GruppoFotoRepository.save(gruppoFoto);
+		return Lists.newArrayList(gruppoFotoRepository.findAll());
 	}
 
+
 	@Override
-	public GruppoFoto findById(long id) {
-		return GruppoFotoRepository.findById(id);
+	public GruppoFoto getGruppoFoto(long id) {
+		return gruppoFotoRepository.findById(id);
 	}
 	
 	@Override
-	public GruppoFoto findByNome(String nome) {
-		return GruppoFotoRepository.findByNome(nome);
+	public List<GruppoFoto> findByNome(String nome) {
+		return gruppoFotoRepository.findByNome(nome);
+	}
+
+
+	@Override
+	public GruppoFoto createGruppoFoto(GruppoFoto gruppoFoto) {
+		return this.gruppoFotoRepository.save(gruppoFoto);
+	}
+
+
+	@Override
+	public GruppoFoto updateGruppoFoto(GruppoFoto gruppoFoto) {
+		return this.gruppoFotoRepository.save(gruppoFoto);
 	}
 }

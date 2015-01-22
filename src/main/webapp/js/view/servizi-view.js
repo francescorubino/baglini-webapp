@@ -1,15 +1,15 @@
-define([ 'backbone', 'resthub', 'jssor-slider', 'view/slider-view', 'model/gruppofoto', 'hbs!template/azienda' ],
-		function(Backbone, Resthub, JssorSlider, SliderView, GruppoFotoModel, aziendaTemplate) {
+define([ 'backbone', 'resthub', 'jssor-slider', 'view/slider-view', 'model/gruppofoto', 'hbs!template/servizi' ],
+		function(Backbone, Resthub, JssorSlider, SliderView, GruppoFotoModel, serviziTemplate) {
 
-			var AziendaView = Resthub.View.extend({
+			var ServiziView = Resthub.View.extend({
 
 				// Define view template
-				template : aziendaTemplate,
+				template : serviziTemplate,
 
 				initialize : function() {
 
 					this.model = new GruppoFotoModel({
-						url : "gruppofoto/azienda"
+						url : "gruppofoto/servizi"
 					});
 					
 					var self = this;
@@ -19,11 +19,10 @@ define([ 'backbone', 'resthub', 'jssor-slider', 'view/slider-view', 'model/grupp
 							self.render(self);
 						}
 					});
-					// Render the view
 				},
 
 				render : function() {
-					AziendaView.__super__.render.apply(this, arguments);
+					ServiziView.__super__.render.apply(this, arguments);
 					new SliderView({
 						root : $('#slider'), 
 						idGruppo : this.model.id
@@ -31,5 +30,5 @@ define([ 'backbone', 'resthub', 'jssor-slider', 'view/slider-view', 'model/grupp
 				},
 
 			});
-			return AziendaView;
+			return ServiziView;
 		});

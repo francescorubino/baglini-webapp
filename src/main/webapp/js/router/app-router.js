@@ -1,5 +1,5 @@
-define(['backbone', 'view/home-view', 'view/azienda-view', 'view/news-view'],
-function (Backbone, HomeView, AziendaView, NewsView) {
+define(['backbone', 'view/home-view', 'view/azienda-view', 'view/news-view', 'view/servizi-view'],
+function (Backbone, HomeView, AziendaView, NewsView, ServiziView) {
     
     var AppRouter = Backbone.Router.extend({
 
@@ -11,7 +11,8 @@ function (Backbone, HomeView, AziendaView, NewsView) {
             '': 'home',
             'home' : 'home',
             'azienda': 'azienda',
-            'servizi': 'servizi'
+            'servizi': 'servizi',
+            'servizi': 'servizi',
         },
 
         home:function () {
@@ -22,7 +23,10 @@ function (Backbone, HomeView, AziendaView, NewsView) {
         },
         servizi:function () {
             new NewsView({ root: $('#main') });      
-        }
+        },
+        servizi:function () {
+        	new ServiziView({ root: $('#main') });     
+        },
 
     });
 

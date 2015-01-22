@@ -6,8 +6,10 @@ import java.util.List;
 
 public interface GruppoFotoService {
 
-	public GruppoFoto salvaGruppoFoto(GruppoFoto gruppoFoto);
 	public List<GruppoFoto> getGruppiFoto();
-	public GruppoFoto findById(long id);
-	public GruppoFoto findByNome(String nome);
+	public List<GruppoFoto> findByNome(String nome);
+	
+	public GruppoFoto getGruppoFoto(long id);
+	public GruppoFoto createGruppoFoto(GruppoFoto gruppoFoto);
+	public GruppoFoto updateGruppoFoto(GruppoFoto gruppoFoto);
 }
