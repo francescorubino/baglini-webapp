@@ -6,10 +6,17 @@ import java.util.List;
 
 public interface NotiziaService {
 
+	public Notizia getNotizia(long idNotizia);
+
 	public Notizia salvaNotizia(Notizia notizia);
+
 	public List<Notizia> getNotizie();
+
 	public List<Notizia> findByTitolo(String titolo);
+
 	public List<Notizia> getNotizieByLikeTitolo(String titolo);
-	public List<Notizia> getNotizieByAnno(int anno);
-	public List<Notizia> getNotizieByAnnoAndMese(int anno, int mese);
+
+	public List<Notizia> getNotizieByAnno(String anno);
+
+	public List<Notizia> getNotizieByAnnoAndMese(String anno, String mese);
 }

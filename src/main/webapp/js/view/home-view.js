@@ -1,6 +1,6 @@
 define(
-		[ 'backbone', 'resthub', 'jssor-slider', 'hbs!template/home', 'view/news-view', 'collection/notizie' ],
-		function(Backbone, Resthub, JssorSlider, homeTemplate, NewsView, Notizie) {
+		[ 'backbone', 'resthub', 'jssor-slider', 'hbs!template/home', 'view/news-view', 'collection/notizia-collection' ],
+		function(Backbone, Resthub, JssorSlider, homeTemplate, NewsView, NotiziaCollection) {
 
 			
 			var HomeView = Resthub.View
@@ -9,6 +9,23 @@ define(
 						// Define view template
 						template : homeTemplate,
 
+						events : {
+							"click #button1" : function() {
+						        var newsView = new NewsView({
+						            collection: NotiziaCollection,
+						            root: this.$('#news'),
+						            anno : "2015",
+						            mese : "09"
+						        })
+							},
+							"click #button2" : function() {
+						        var newsView = new NewsView({
+						            collection: NotiziaCollection,
+						            root: this.$('#news')
+						        })
+							}
+						},
+						
 						initialize : function() {
 							
 							// Render the view
@@ -932,7 +949,7 @@ define(
 							
 							//Inserimento delle nested views
 					        var newsView = new NewsView({
-					            collection: Notizie,
+					            collection: NotiziaCollection,
 					            root: this.$('#news')})
 						},
 					});

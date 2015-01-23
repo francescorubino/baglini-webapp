@@ -1,6 +1,6 @@
 package it.baglini.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 @Entity
 @Table(name = "NOTIZIA")
@@ -17,8 +20,9 @@ public class Notizia {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@Temporal(TemporalType.DATE)
 	@Column(name = "DATA")
-	private Calendar data;
+	private Date data;
 
 	@Column(name = "TITOLO", length = 100)
 	private String titolo;
@@ -43,11 +47,11 @@ public class Notizia {
 		this.id = id;
 	}
 
-	public Calendar getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(Calendar data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 

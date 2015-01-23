@@ -1,9 +1,7 @@
 define(['backbone'], function(Backbone) {
     var NotiziaModel = Backbone.Model.extend({
 
-        defaults: {
-        	
-        }
+    	url : "notizia",
 
     });
     return NotiziaModel;
