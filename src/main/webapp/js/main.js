@@ -78,7 +78,8 @@ require.config({
 		'jssor' : 'lib/jssor/jssor',
 		'jssor-slider' : 'lib/jssor/jssor.slider'
 
-	}
+	},
+	locale: localStorage.getItem('locale') || 'it-it'
 });
 
 // Load our app module and pass it to our definition function

@@ -11,8 +11,10 @@ function (Backbone, HomeView, AziendaView, NewsView, ServiziView) {
             '': 'home',
             'home' : 'home',
             'azienda': 'azienda',
+            'servizi': 'news',
             'servizi': 'servizi',
-            'servizi': 'servizi',
+            'it' : 'it',
+            'en' : 'en'
         },
 
         home:function () {
@@ -21,11 +23,45 @@ function (Backbone, HomeView, AziendaView, NewsView, ServiziView) {
         azienda:function () {
             new AziendaView({ root: $('#main') });     
         },
-        servizi:function () {
+        news:function () {
             new NewsView({ root: $('#main') });      
         },
         servizi:function () {
         	new ServiziView({ root: $('#main') });     
+        },
+        routes:{
+            '': 'home',
+            'home' : 'home',
+            'azienda': 'azienda',
+            'news': 'news',
+            'servizi': 'servizi',
+            'it' : 'it',
+            'en' : 'en'
+        },
+
+        home:function () {
+            new HomeView({ root: $('#main') });
+        },
+        azienda:function () {
+            new AziendaView({ root: $('#main') });     
+        },
+        news:function () {
+            new NewsView({ root: $('#main') });      
+        },
+        it:function () {
+        	var locale = localStorage.getItem('locale');
+            if(locale != 'it-it') {
+                localStorage.setItem('locale', 'it-it');
+                location.reload();
+            }
+        	     
+        },
+        en:function () {
+        	var locale = localStorage.getItem('locale');
+            if(locale != 'en-us') {
+                localStorage.setItem('locale', 'en-us');
+                location.reload();
+            }
         },
 
     });
