@@ -6,29 +6,7 @@ function (Backbone, HomeView, AziendaView, NewsView, ServiziView) {
         initialize: function() {
             Backbone.history.start({ pushState: false, root: "/" });
         },
-
-        routes:{
-            '': 'home',
-            'home' : 'home',
-            'azienda': 'azienda',
-            'servizi': 'news',
-            'servizi': 'servizi',
-            'it' : 'it',
-            'en' : 'en'
-        },
-
-        home:function () {
-            new HomeView({ root: $('#main') });
-        },
-        azienda:function () {
-            new AziendaView({ root: $('#main') });     
-        },
-        news:function () {
-            new NewsView({ root: $('#main') });      
-        },
-        servizi:function () {
-        	new ServiziView({ root: $('#main') });     
-        },
+        
         routes:{
             '': 'home',
             'home' : 'home',
