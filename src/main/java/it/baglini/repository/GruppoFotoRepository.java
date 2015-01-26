@@ -12,6 +12,7 @@ public interface GruppoFotoRepository extends CrudRepository<GruppoFoto, Long>{
 
 	public GruppoFoto findById(long id);
 	public List<GruppoFoto> findByNome(String nome);
+	public List<GruppoFoto> findBySezioni_nomeSezione(String nomeSezione);
 	
 
 }

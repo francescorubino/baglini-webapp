@@ -1,12 +1,15 @@
-define(['backbone', 'model/gruppofoto'], function (Backbone, FotoModel) {
+define(['backbone', 'model/gruppofoto'], function (Backbone, GruppoFotoModel) {
 
-    var FotoCollection = Backbone.Collection.extend({
+    var GruppoFotoCollection = Backbone.Collection.extend({
 
         // Reference to this collection's model.
-        model: FotoModel,
+        model: GruppoFotoModel,
         url:'gruppofoto/list',
         
         initialize: function(args){
+        	if(typeof args.nomeSezione != 'undefined'){
+        		this.url = 'gruppofoto/gruppoBySezione?nomeSezione=' + args.nomeSezione;
+        	}
         	if(typeof args.idGruppo != 'undefined'){
         		this.url = 'gruppofoto/findByGroup?idGruppo=' + args.idGruppo;
         	}
@@ -16,5 +19,5 @@ define(['backbone', 'model/gruppofoto'], function (Backbone, FotoModel) {
         },
 
     });
-    return FotoCollection;
+    return GruppoFotoCollection;
 });

@@ -1,6 +1,7 @@
 package it.baglini.mvc;
 
 import it.baglini.model.GruppoFoto;
+import it.baglini.model.Sezione;
 import it.baglini.service.GruppoFotoService;
 
 import java.util.List;
@@ -45,6 +46,13 @@ public class GruppoFotoController {
 	@RequestMapping(value="/gruppoByNome", method = RequestMethod.GET)
 	public List<GruppoFoto> getGruppoFotoByNome(@RequestParam("nome") String nome){
 		return this.gruppoFotoService.findByNome(nome);
+	}
+	
+	@RequestMapping(value="/gruppoBySezione", method = RequestMethod.GET)
+	public List<GruppoFoto> getGruppoFotoBySezione(@RequestParam("nomeSezione") String nomeSezione){
+		Sezione sezione = new Sezione();
+		sezione.setNomeSezione(nomeSezione);
+		return this.gruppoFotoService.findBySezione(sezione);
 	}
 	
 	@RequestMapping(value="/azienda", method=RequestMethod.GET)

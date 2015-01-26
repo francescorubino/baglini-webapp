@@ -1,6 +1,7 @@
 package it.baglini.service;
 
 import it.baglini.model.GruppoFoto;
+import it.baglini.model.Sezione;
 import it.baglini.repository.GruppoFotoRepository;
 
 import java.util.List;
@@ -45,5 +46,11 @@ public class GruppoFotoServiceImpl implements GruppoFotoService {
 	@Override
 	public GruppoFoto updateGruppoFoto(GruppoFoto gruppoFoto) {
 		return this.gruppoFotoRepository.save(gruppoFoto);
+	}
+
+
+	@Override
+	public List<GruppoFoto> findBySezione(Sezione sezione) {
+		return this.gruppoFotoRepository.findBySezioni_nomeSezione(sezione.getNomeSezione());
 	}
 }
