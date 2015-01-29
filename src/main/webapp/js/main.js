@@ -44,8 +44,12 @@ require.config({
 		},
 		'jssor-slider' : {
 			deps : [ 'jquery', 'jssor' ],
-        	exports : "jssor-slider"
-		}
+			exports : "jssor-slider"
+		},
+		'colorbox' : {
+			deps : [ 'jquery' ],
+			exports : "colorbox"
+		},
 	},
 
 	// Libraries
@@ -76,10 +80,11 @@ require.config({
 		json2 : 'lib/json2',
 		console : 'lib/resthub/console',
 		'jssor' : 'lib/jssor/jssor',
-		'jssor-slider' : 'lib/jssor/jssor.slider'
+		'jssor-slider' : 'lib/jssor/jssor.slider',
+		'colorbox' : 'lib/colorbox/jquery.colorbox'
 
 	},
-	locale: localStorage.getItem('locale') || 'it-it'
+	locale : localStorage.getItem('locale') || 'it-it'
 });
 
 // Load our app module and pass it to our definition function

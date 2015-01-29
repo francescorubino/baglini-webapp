@@ -1,6 +1,6 @@
 define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
-		'hbs!template/gruppoFoto', 'view/paginator-view' ], function(Backbone, Resthub,
-		GruppoFotoCollection, gruppoFotoTemplate, PaginatorView) {
+		'hbs!template/gruppoFoto', 'view/paginator-view', 'view/slider-view', 'colorbox' ], function(Backbone, Resthub,
+		GruppoFotoCollection, gruppoFotoTemplate, PaginatorView, SliderView) {
 
 	var GruppoFotoView = Resthub.View.extend({
 
@@ -16,8 +16,16 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 			},
 			"click .paginatorNext" : function(e) {
 				this.collection.nextPage();
+			},
+			"click .colorbox" : function(e) {
+				var sliderView = new SliderView({
+					root :  ($('#overlay')),
+					idGruppo : $(e.currentTarget).data('idgruppo')
+				});
+				$.colorbox({html: sliderView.el});
+
 			}
-		// events to change page
+
 		},
 
 		initialize : function(args) {

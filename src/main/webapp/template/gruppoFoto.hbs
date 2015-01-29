@@ -3,6 +3,10 @@
 <ul>
 	{{#each collection}}
 	<li>{{nome}} -> {{descrizione}} -> {{fotos.0.path}}</li>
+	<div>
 	<img src="{{fotos.0.path}}" /> 
+	</div>
+	<a class="colorbox" data-idgruppo="{{id}}">Visualizza</a>
+
 	{{/each}}
 </ul>
