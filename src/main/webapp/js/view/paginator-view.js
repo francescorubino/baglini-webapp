@@ -14,7 +14,6 @@ define([ 'backbone', 'resthub', 'hbs!template/paginator', 'model/paginator' ], f
 			});
 
 			this.render();
-//			this.listenTo(this.model, 'sync', this.render);
 		}
 
 	});

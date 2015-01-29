@@ -8,8 +8,14 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 		template : gruppoFotoTemplate,
 
 		events : {
-			"click .paginator" : function(e) {
+			"click .paginatorPrevious" : function(e) {
+				this.collection.prevPage();
+			},
+			"click .paginatorPage" : function(e) {
 				this.collection.goTo($(e.currentTarget).data('page'));
+			},
+			"click .paginatorNext" : function(e) {
+				this.collection.nextPage();
 			}
 		// events to change page
 		},

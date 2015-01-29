@@ -1,17 +1,15 @@
 <nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    {{#for 1 model.totalPages}}
-    <li><a class="paginator" data-page="{{this}}">{{this}}</a></li>
-    {{/for}}
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
+	<ul class="pagination">
+		<li><a class="paginatorPrevious noselect" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+		</a></li> 
+		{{#for 1 model.totalPages}}
+		<li {{#ifequals ../model.currentPage this}}class="active"{{/ifequals}}><a
+			class="paginatorPage noselect"
+			data-page="{{this}}">{{this}}</a></li>
+		 {{/for}}
+		<li><a class="paginatorNext noselect" aria-label="Next"> <span
+				aria-hidden="true">&raquo;</span>
+		</a></li>
+	</ul>
 </nav>
