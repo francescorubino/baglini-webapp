@@ -104,23 +104,24 @@ public class FotoServiceTest {
 		sezione1.setNomeSezione("realizzazioni");
 		
 		GruppoFoto gf = new GruppoFoto();
-		gf.setNome("Casa sul mare");
-		gf.setDescrizione("Bella casa sul mare");
+		gf.setNome("Casa in montagna");
+		gf.setDescrizione("Bella casa in montagna");
 		
 		Foto f1 = new Foto();
-		f1.setNome("casamare1");
-		f1.setDescrizione("Casa mare wow");
-		f1.setPath("img/baglini/casamare1.jpg");
+		f1.setNome("casamontagna1");
+		f1.setDescrizione("Casa montagna wow");
+		f1.setPath("img/baglini/casamontagna1.jpg");
 		f1.setGruppoFoto(gf);
 		gf.getFotos().add(f1);
 		
 		Foto f2 = new Foto();
-		f2.setNome("casamare2");
-		f2.setDescrizione("Casa mare wow");
-		f2.setPath("img/baglini/casamare2.jpg");
+		f2.setNome("casamontagna2");
+		f2.setDescrizione("Casa montagna wow");
+		f2.setPath("img/baglini/casamontagna2.jpg");
 		f2.setGruppoFoto(gf);
 		gf.getFotos().add(f2);
 		
+//		Sezione sezione1 = sezioneService.getSezioneByNomeSezione("realizzazioni").get(0);
 		gf.getSezioni().add(sezione1);
 		sezione1.getGruppoFotos().add(gf);
 		

@@ -1,6 +1,6 @@
 define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
-		'hbs!template/gruppoFoto' ], function(Backbone, Resthub,
-		GruppoFotoCollection, gruppoFotoTemplate) {
+		'hbs!template/gruppoFoto', 'view/paginator-view' ], function(Backbone, Resthub,
+		GruppoFotoCollection, gruppoFotoTemplate, PaginatorView) {
 
 	var GruppoFotoView = Resthub.View.extend({
 
@@ -8,6 +8,9 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 		template : gruppoFotoTemplate,
 
 		events : {
+			"click .paginator" : function(e) {
+				this.collection.goTo($(e.currentTarget).data('page'));
+			}
 		// events to change page
 		},
 
@@ -19,6 +22,7 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 
 			// Render the view when the collection is retrieved from the server
 			this.listenTo(this.collection, 'sync', this.render);
+			
 			// Render the view when the page is changed
 			this.listenTo(this.collection, 'reset', this.render);
 
@@ -32,7 +36,17 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 					console.log(response);
 				}
 			});
-		}
+		},
+		
+		render : function() {
+			GruppoFotoView.__super__.render.apply(this, arguments);
+			
+			new PaginatorView({
+				root : $('#paginator'), 
+				totalPages : this.collection.info().totalPages,
+				currentPage : this.collection.info().currentPage
+			});
+		},
 
 	});
 	return GruppoFotoView;

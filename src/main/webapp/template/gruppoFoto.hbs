@@ -1,6 +1,7 @@
-
+<div id="paginator"></div>
 <ul>
-    {{#each collection}}
-        <li>{{nome}} -> {{descrizione}} -> {{fotos.0.path}}</li>
-    {{/each}}
+	{{#each collection}}
+	<li>{{nome}} -> {{descrizione}} -> {{fotos.0.path}}</li>
+	<img src="{{fotos.0.path}}" /> 
+	{{/each}}
 </ul>
