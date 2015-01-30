@@ -1,11 +1,12 @@
-define([ 'backbone', 'resthub', 'jssor-slider', 'view/slider-view', 'model/gruppofoto', 'hbs!template/servizi' ],
-		function(Backbone, Resthub, JssorSlider, SliderView, GruppoFotoModel, serviziTemplate) {
+define([ 'backbone', 'resthub', 'i18n!nls/labels', 'jssor-slider', 'view/slider-view', 'model/gruppofoto', 'hbs!template/servizi' ],
+		function(Backbone, Resthub, myLabels, JssorSlider, SliderView, GruppoFotoModel, serviziTemplate) {
 
 			var ServiziView = Resthub.View.extend({
 
 				// Define view template
 				template : serviziTemplate,
-
+				labels : myLabels,
+				
 				initialize : function() {
 
 					this.model = new GruppoFotoModel({

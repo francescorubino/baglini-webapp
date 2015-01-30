@@ -1,5 +1,5 @@
-define(['backbone', 'view/home-view', 'view/azienda-view', 'view/news-view', 'view/servizi-view', 'view/realizzazioni-view'],
-function (Backbone, HomeView, AziendaView, NewsView, ServiziView, RealizzazioniView) {
+define(['backbone', 'view/home-view', 'view/azienda-view', 'view/news-view', 'view/servizi-view', 'view/realizzazioni-view', 'view/proposte-view'],
+function (Backbone, HomeView, AziendaView, NewsView, ServiziView, RealizzazioniView, ProposteView) {
     
     var AppRouter = Backbone.Router.extend({
 
@@ -14,6 +14,7 @@ function (Backbone, HomeView, AziendaView, NewsView, ServiziView, RealizzazioniV
             'news': 'news',
             'servizi': 'servizi',
             'realizzazioni' : 'realizzazioni',
+            'proposte' : 'proposte',
             'it' : 'it',
             'en' : 'en'
         },
@@ -29,6 +30,9 @@ function (Backbone, HomeView, AziendaView, NewsView, ServiziView, RealizzazioniV
         },
         realizzazioni:function () {
         	new RealizzazioniView({ root: $('#main') });     
+        },
+        proposte:function () {
+        	new ProposteView({ root: $('#main') });     
         },
         news:function () {
             new NewsView({ root: $('#main') });      
