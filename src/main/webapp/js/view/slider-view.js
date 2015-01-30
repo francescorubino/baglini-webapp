@@ -41,11 +41,31 @@ define([ 'backbone', 'resthub', 'jssor-slider', 'collection/foto-collection', 'h
 			                $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
 			                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
 			                    $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
-			                    $AutoCenter: 0,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+			                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
 			                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
 			                }
 			            };
 					var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+					
+			        //responsive code begin
+			        //you can remove responsive code if you don't want the slider scales
+			        //while window resizes
+			        function ScaleSlider() {
+			            var parentWidth = $('#slider1_container').parent().width();
+			            if (parentWidth) {
+			                jssor_slider1.$ScaleWidth(parentWidth);
+			            }
+			            else
+			                window.setTimeout(ScaleSlider, 30);
+			        }
+			        //Scale slider after document ready
+			        ScaleSlider();
+			                                        
+			        //Scale slider while window load/resize/orientationchange.
+			        $(window).bind("load", ScaleSlider);
+			        $(window).bind("resize", ScaleSlider);
+			        $(window).bind("orientationchange", ScaleSlider);
+			        //responsive code end
 				},
 
 			});

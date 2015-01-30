@@ -25,7 +25,9 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 				});
 				$.colorbox({
 					html : sliderView.el,
-					title: $(e.currentTarget).data('title')
+					title: $(e.currentTarget).data('title'),
+					width : "50%",
+					height: "51%"
 				});
 
 			}

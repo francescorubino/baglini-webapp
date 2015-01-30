@@ -1,8 +1,14 @@
-<ul>
+<div class="col-sm-6 latest-news">
+	<h2>News</h2>
 	{{#each collection}}
-	<div>{{formatDate data 'DD/MM/YYYY'}}</div>
-	<div>{{titolo}}</div>
-	<div>{{testo}}</div>
-	<br /> 
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="caption">
+				<a href="page-blog-post-left-sidebar.html">{{titolo}}</a>
+			</div>
+			<div class="date">{{formatDate data 'DD-MMM-YYYY'}}</div>
+			<div class="intro">{{testo}}</div>
+		</div>
+	</div>
 	{{/each}}
-</ul>
+</div>

@@ -7,52 +7,73 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/icomoon-social.css">
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800'
+	rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="css/leaflet.css" />
 <link href="css/jssor.css" rel="stylesheet">
 <link href="css/colorbox.css" rel="stylesheet">
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/lib/css/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 
 <body>
 
 	<div id="headerPage" class="header"></div>
 
-	<nav class="navbar navbar-trans" role="navigation">
+	<!-- Navigation & Logo-->
+	<div class="mainmenu-wrapper">
 		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#navbar-collapsible">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Baglini Casa</a>
+			<div class="menuextras">
+				<div class="extras">
+					<ul>
+						<li><a class="#" href="#it"><img src="img/flags/it.png"
+								alt="Italia"> IT</a></li>
+						<li><a class="#" href="#en"><img src="img/flags/us.png"
+								alt="United States"> US</a></li>
+					</ul>
+				</div>
 			</div>
-			<div class="navbar-collapse collapse" id="navbar-collapsible">
-				<ul class="nav navbar-nav navbar-left">
+			<nav id="mainmenu" class="mainmenu">
+				<ul>
+					<li class="logo-wrapper"><a href="#"><img
+							src="img/baglini/logo.jpg" alt="Baglini Casa"></a></li>
+					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#azienda">Azienda</a></li>
 					<li><a href="#realizzazioni">Realizzazioni</a></li>
 					<li><a href="#proposte">Proposte</a></li>
 					<li><a href="#servizi">Servizi</a></li>
-					<li>&nbsp;</li>
 				</ul>
-			</div>
+			</nav>
 		</div>
-	</nav>
-	<div class="container">
-		<div id="main"></div>
 	</div>
-	<div id="footerPage" class="footer"></div>
+
+
+
+	<div id="main"></div>
+
+
+
+	<div class="section">
+		<div id="footerPage" class="footer"></div>
+	</div>
 
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script data-main="js/main" src="js/lib/require.js"></script>
 	<script src="js/lib/jquery.js"></script>
+	<script src="js/lib/bootstrap.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+	<script src="js/lib/css/main-menu.js"></script>
 	<script>
 		$(function() {
-			$("#headerPage").load("header.html");
+			// 			$("#headerPage").load("header.html");
 			$("#footerPage").load("footer.html");
 		});
 	</script>

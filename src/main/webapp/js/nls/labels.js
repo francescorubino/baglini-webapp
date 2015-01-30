@@ -5,7 +5,7 @@ define({
     		'title' : 'Azienda',
     	},
     	'realizzazioni' : {
-    		'title' : 'Rrealizzazioni',
+    		'title' : 'Realizzazioni',
     	},
     	'proposte' : {
     		'title' : 'Proposte immobiliari',

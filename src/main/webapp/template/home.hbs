@@ -1,74 +1,13 @@
-<div id="slider1_container" style="position: relative; width: 980px;
-        height: 380px; overflow: hidden;">
- 
-        <!-- Loading Screen --> 
-        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
-            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
-                background-color: #000; top: 0px; left: 0px;width: 100%; height:100%;"> 
-            </div> 
-            <div style="position: absolute; display: block; background: url(img/jssor/loading.gif) no-repeat center center;
-                top: 0px; left: 0px;width: 100%;height:100%;">
-            </div> 
-        </div> 
-        
-        <!-- Slides Container --> 
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 980px; height: 380px;
-            overflow: hidden;">
-            <div>
-                <img u="image" src="img/azienda1.jpg" />
-                <div u=caption t="CLIP|LR" du="1500" class="captionOrange"  style="position:absolute; left:20px; top: 30px; width:500px; height:30px;"> 
-                Baglini Casa
-                </div>
-                <div u=caption t="T|IE*IE" d=-1600 du=3800 t2="B" class="captionOrange" style="position:absolute; left:20px; top: 150px; width:330px; height:30px;">
-                    Da 30 anni
-                </div>
-                <div u=caption t="T|IE*IE" d=-1600 du=3800 t2="B" class="captionOrange" style="position:absolute; left:20px; top: 210px; width:330px; height:30px;">
-                    il tuo architetto di fiducia
-                </div>
-                <div u="caption" t="RTTL|BR" d=-450 class=captionBlack style="position:absolute; top:300px; left: 800px; width:120px; height:60px;">Da personalizzare</div>
-            </div>
-            <div>
-                <img u="image" src="img/azienda2.jpg" />
+<div class="container">
+	<div class="section" id="introSlider"></div>
 
-                <div u=caption t="T|IB" t2="T" d=-300 class="captionOrange"  style="position:absolute; left:20px; top: 100px; width:130px; height:30px;"> 
-                Solo da noi
-                </div>
-                <div u=caption t="T|IB" t2=L d=-900 class="captionBlack"  style="position:absolute; left:60px; top: 170px; width:100px; height:30px;"> 
-                troverete
-                </div>
-                <div u="caption" t="WV|B" t2="T" d=-600 class=bricon style="position:absolute; top:50px; left: 220px; width:30px; height:30px; background-position: 0px 0px;"></div>
-                <div u="caption" t="WV|B" t2="T" d="-1100" class=bricon style="position:absolute; top:100px; left: 220px; width:30px; height:30px; background-position: 0px 0px;"></div>
-                <div u="caption" t="WV|B" t2="T" d="-1100" class=bricon style="position:absolute; top:150px; left: 220px; width:30px; height:30px; background-position: 0px 0px;"></div>
-                <div u="caption" t="WV|B" t2="T" d="-1100" class=bricon style="position:absolute; top:200px; left: 220px; width:30px; height:30px; background-position: 0px 0px;"></div>
-                <div u="caption" t="LISTH|R" t2="CLIP|TB" d=-600 class=captionOrange style="position: absolute; top: 40px; left: 280px; width: 150px;
-                    height: 200px; text-align: left; line-height: 50px;">
-                        &nbsp; Serietà&nbsp;<br />
-                        &nbsp; Efficienza&nbsp;<br />
-                        &nbsp; Sicurezza&nbsp;<br />
-                        &nbsp; Cortesia&nbsp;
-                </div>
-                <div u="caption" t="RTTL|BR" d=-450 class=captionBlack style="position:absolute; top:300px; left: 800px; width:120px; height:60px;">Da personalizzare</div>
-            </div>
-        </div> 
-        
-        <!-- bullet navigator container -->
-        <div u="navigator" class="jssorb03" style="position: absolute; bottom: 16px; left: 6px;">
-            <!-- bullet navigator item prototype -->
-            <div u="prototype" style="POSITION: absolute; WIDTH: 21px; HEIGHT: 21px; text-align:center; line-height:21px; color:White; font-size:12px;"><div u="numbertemplate"></div></div>
-        </div>       
-
-	<!-- Arrow Left -->
-	<span u="arrowleft" class="jssora03l"
-		style="width: 55px; height: 55px; top: 123px; left: 8px;"> </span>
-	<!-- Arrow Right -->
-	<span u="arrowright" class="jssora03r"
-		style="width: 55px; height: 55px; top: 123px; right: 8px"> </span>
-	<!-- Arrow Navigator Skin End -->
-
-        <a style="display: none" href="http://www.jssor.com">Image Slider</a>
-    </div> 
-    <!-- Jssor Slider End -->
-
-<button id='button1'>Premi per vedere solo le news di settembre 2015</button>
-<button id='button2'>Premi per vedere tute le news</button>
-    <div id = "news"></div>
+	<div>
+		<button id='button1' class='btn-blue'>Premi per vedere solo
+			le news di settembre 2015</button>
+		<button id='button2' class='btn-green'>Premi per vedere tute
+			le news</button>
+	</div>
+	<div class="section">
+		<div id="news"></div>
+	</div>
+</div>
