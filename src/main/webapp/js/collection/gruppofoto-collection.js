@@ -24,7 +24,7 @@ define(['backbone-paginator', 'model/gruppofoto'], function (Paginator, GruppoFo
             currentPage:1,
 
             // how many items per page should be shown
-            perPage:2,
+            perPage:4,
 
             // a default number of total pages to query in case the API or
             // service you are using does not support providing the total

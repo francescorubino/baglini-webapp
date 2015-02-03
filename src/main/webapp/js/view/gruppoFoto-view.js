@@ -26,8 +26,9 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 				$.colorbox({
 					html : sliderView.el,
 					title: $(e.currentTarget).data('title'),
-					width : "50%",
-					height: "51%"
+					width : "650px",
+					height: "520px",
+					scrolling: false
 				});
 
 			}
@@ -44,7 +45,7 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 			this.listenTo(this.collection, 'sync', this.render);
 
 			// Render the view when the page is changed
-			this.listenTo(this.collection, 'reset', this.render);
+			this.listenTo(this.collection, 'reset', this.update);
 
 			// Request first page
 			this.collection.fetch({
@@ -66,7 +67,14 @@ define([ 'backbone', 'resthub', 'collection/gruppofoto-collection',
 				totalPages : this.collection.info().totalPages,
 				currentPage : this.collection.info().currentPage
 			});
+			
+			
 		},
+		
+		update : function() {
+		    
+		    this.render();
+		}
 
 	});
 	return GruppoFotoView;

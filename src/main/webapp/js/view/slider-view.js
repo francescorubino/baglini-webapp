@@ -25,6 +25,7 @@ define([ 'backbone', 'resthub', 'jssor-slider', 'collection/foto-collection', 'h
 				render : function() {
 					SliderView.__super__.render.apply(this, arguments);
 					var options = {
+			                $FillMode: 5,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
 			                $AutoPlay: true,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
 			                $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
 			                $DragOrientation: 3,

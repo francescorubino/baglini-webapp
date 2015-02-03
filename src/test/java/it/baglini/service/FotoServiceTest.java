@@ -129,6 +129,82 @@ public class FotoServiceTest {
 		System.err.println(sezione.getId());
 	}
 	
+	@Rollback(value = false)
+	@Test
+	public void creaGruppoInRealizzazioni() {
+		Sezione sezione = sezioneService.getSezioneByNomeSezione("realizzazioni").get(0);
+		
+		GruppoFoto gf = new GruppoFoto();
+		gf.setNome("ventura");
+		gf.setDescrizione("Ristrutturazione casa ventura");
+
+		Foto f1 = new Foto();
+		f1.setNome("ventura1");
+		f1.setDescrizione("Facciata");
+		f1.setPath("img/baglini/Ventura/ventura1.jpg");
+		f1.setGruppoFoto(gf);
+		gf.getFotos().add(f1);
+
+		Foto f2 = new Foto();
+		f2.setNome("ventura2");
+		f2.setDescrizione("Vecchia facciata");
+		f2.setPath("img/baglini/Ventura/ventura2.jpg");
+		f2.setGruppoFoto(gf);
+		gf.getFotos().add(f2);
+		
+//		Foto f3 = new Foto();
+//		f3.setNome("ventura3");
+//		f3.setDescrizione("Lavori");
+//		f3.setPath("img/baglini/ventura/ventura3.jpg");
+//		f3.setGruppoFoto(gf);
+//		gf.getFotos().add(f3);
+//		
+//		Foto f4 = new Foto();
+//		f4.setNome("ventura4");
+//		f4.setDescrizione("Lavori");
+//		f4.setPath("img/baglini/ventura/ventura4.jpg");
+//		f4.setGruppoFoto(gf);
+//		gf.getFotos().add(f4);
+//		
+//		Foto f5 = new Foto();
+//		f5.setNome("ventura5");
+//		f5.setDescrizione("Lavori");
+//		f5.setPath("img/baglini/ventura/ventura5.jpg");
+//		f5.setGruppoFoto(gf);
+//		gf.getFotos().add(f5);
+//		
+//		Foto f6 = new Foto();
+//		f6.setNome("ventura6");
+//		f6.setDescrizione("Lavori");
+//		f6.setPath("img/baglini/ventura/ventura6.jpg");
+//		f6.setGruppoFoto(gf);
+//		gf.getFotos().add(f6);
+//		
+//		Foto f7 = new Foto();
+//		f7.setNome("ventura7");
+//		f7.setDescrizione("Lavori");
+//		f7.setPath("img/baglini/ventura/ventura7.jpg");
+//		f7.setGruppoFoto(gf);
+//		gf.getFotos().add(f7);
+//		
+//		Foto f8 = new Foto();
+//		f8.setNome("ventura8");
+//		f8.setDescrizione("lavori");
+//		f8.setPath("img/baglini/ventura/ventura8.jpg");
+//		f8.setGruppoFoto(gf);
+//		gf.getFotos().add(f8);
+//		
+//		Foto f9 = new Foto();
+//		f9.setNome("ventura9");
+//		f9.setDescrizione("Lavori");
+//		f9.setPath("img/baglini/ventura/ventura9.jpg");
+//		f9.setGruppoFoto(gf);
+//		gf.getFotos().add(f9);
+		
+		gf.getSezioni().add(sezione);
+		sezione.getGruppoFotos().add(gf);
+	}
+	
 	@Test
 	public void searchGruppoFotoBySezione(){
 		Sezione sezione = new Sezione();
